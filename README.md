@@ -43,4 +43,4 @@ idscheduler.set_ids(account_ids=ACCOUNT_IDS,id_buffer=60, res_interval=15)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
