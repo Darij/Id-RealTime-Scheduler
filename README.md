@@ -1,7 +1,7 @@
 # Code Challenge # 2
 
 ## Problem
-On our system, each customer's account is run on an interval to make sure we don't miss any information. For example, each account in our system needs to run once every 15 minutes. You will write a piece of code that will do this scheduling. This function will be called EVERY minute at the top of the minute.
+Each customer's account is run on an interval to make sure we don't miss any information. For example, each account in our system needs to run once every 15 minutes. You will write a piece of code that will do this scheduling. This function will be called EVERY minute at the top of the minute.
 
 You have access to one piece of information, the list of account ids which will be in this format
 
