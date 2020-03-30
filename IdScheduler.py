@@ -19,7 +19,7 @@ class IdScheduler():
 
     def _cleanSchedule(self):
         """Cleans the schedule stack of events
-           to prevent time collision 
+           to prevent time colision 
         """
 
         for event in self.scheduler.queue:
@@ -100,23 +100,20 @@ class IdScheduler():
         self._getIds()
        
 
-    def set_ids(self, **kwargs):
+    def set_ids(self, account_ids=[], id_interval=900, res_interval=60):
         """[Entry point, sets scheduler for each id
             and schedule to return Ids with specified time]
         Arguments:
-            kwargs{
+            args(
                 'account_ids'(list) -- [collection of integers]
                 'id_interval'(interger) -- [time in seconds to next id]
                 'res_interval'(interger) -- [time in seconds to display result]
-            }
+            )
         """
         if len(self.scheduler.queue) > 0:
             # if this is not first iteration, clean used events
             self._cleanSchedule()
 
-        account_ids = kwargs.get('account_ids', [])
-        id_interval = kwargs.get('id_interval', 900)
-        res_interval = kwargs.get('res_interval', 60)
         id_buffer = 1
         priority = 2
         subsets = self._createsubsets(account_ids)
@@ -130,11 +127,10 @@ class IdScheduler():
             self._set_display_schedule(interval=res_interval)
         else:
             pass
-        self.scheduler.enter(id_interval, priority, self.set_ids, 
-                             kwargs={'account_ids': account_ids, 
-                                    'id_buffer': id_interval, 
-                                    'res_interval': res_interval}
-                            )
+        self.scheduler.enter(id_interval, priority, self.set_ids,
+                             argument=(account_ids,
+                                       id_interval,
+                                       res_interval))
 
 
 if __name__ == "__main__":
